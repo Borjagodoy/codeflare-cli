@@ -39,6 +39,7 @@ export default function registerCodeflareCommands(registrar: Registrar) {
   events(registrar)
   dashboard(registrar)
   description(registrar)
+
   registrar.listen("/help", help)
 
   registrar.listen("/codeflare/version", () => import("@kui-shell/client/package.json").then((_) => _.version))
@@ -55,6 +56,12 @@ export default function registerCodeflareCommands(registrar: Registrar) {
 
   // launch our hello guidebook
   registrar.listen("/codeflare/hello", (args) => import("./hello").then((_) => _.default(args)), {
+    needsUI: true,
+    outputOnly: true,
+    width: 800,
+    height: 600,
+  })
+  registrar.listen("/codeflare/helloExample", (args) => import("./helloExample").then((_) => _.default(args)), {
     needsUI: true,
     outputOnly: true,
     width: 800,
