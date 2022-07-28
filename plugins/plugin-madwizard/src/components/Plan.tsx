@@ -108,6 +108,7 @@ class ReactUI implements Tree.UI<React.ReactNode> {
       <button
         className="kui--tree-action pf-c-button pf-m-plain"
         onClick={() => {
+          console.log("hola")
           debug("drilling down to notebook", filepath)
           pexecInCurrentTab(`replay ${encodeComponent(filepath)}`, undefined, true, true)
         }}

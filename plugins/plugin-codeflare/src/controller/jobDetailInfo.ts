@@ -14,13 +14,17 @@
  * limitations under the License.
  */
 
-import { Arguments } from "@kui-shell/core"
+import { Arguments, Registrar } from "@kui-shell/core"
 
-import "../../web/scss/components/helloExample/_index.scss"
+async function jobDetailInfo(args: Arguments) {
+  const address = args.parsedOptions["address"]
+  const jobId = args.parsedOptions["jobId"]
+  const response = await fetch(`${address}/api/jobs/${jobId}`)
 
-export default function helloExample(args: Arguments) {
-  const address = args.parsedOptions["ray_address"]
-  process.env.LOGDIR = address
-  console.log(address)
-  return args.REPL.qexec("commentary --readonly -f /kui/client/hello-example.md")
+  const data = await response.json()
+  console.log(data)
+  return data
+}
+export default function registerDescriptionCommands(registrar: Registrar) {
+  registrar.listen("/codeflare/jobDetailInfo", jobDetailInfo, { needsUI: true })
 }

@@ -19,8 +19,11 @@ import { Arguments } from "@kui-shell/core"
 import "../../web/scss/components/helloExample/_index.scss"
 
 export default function helloExample(args: Arguments) {
-  const address = args.parsedOptions["ray_address"]
+  const jobID = args.parsedOptions["jobId"]
+  console.log(jobID)
+  process.env.JOBID = jobID
+  const address = args.parsedOptions["address"]
   process.env.LOGDIR = address
-  console.log(address)
-  return args.REPL.qexec("commentary --readonly -f /kui/client/hello-example.md")
+  console.log(jobID)
+  return args.REPL.qexec("commentary --readonly -f /kui/client/job-detail.md")
 }

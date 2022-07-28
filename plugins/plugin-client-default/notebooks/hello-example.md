@@ -2,14 +2,26 @@
 title: Hello Example
 className: codeflare--welcome-guidebook
 layout:
-    2: 
+    1:
         position: default
         maximized: true
         inverseColors: true
+    2:
+        position: default
+        maximized: true
 ---
 
-<!-- <img alt="CodeFlare Icon" src="@kui-shell/client/icons/svg/codeflare.svg" width="80" height="80" /> -->
+=== "Nodes"
 
+    ```shell
+    ---
+    execute: now
+    maximize: true
+    outputOnly: true
+    ---
+    codeflare nodeSummary --address "$LOGDIR"
+    ```
+---
 === "List of Jobs"
 
     ```shell
@@ -18,6 +30,5 @@ layout:
     maximize: true
     outputOnly: true
     ---
-    ray job list --address "$LOGDIR"
+    codeflare jobsList --address "$LOGDIR"
     ```
-

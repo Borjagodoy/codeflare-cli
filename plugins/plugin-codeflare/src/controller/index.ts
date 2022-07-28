@@ -23,6 +23,9 @@ import charts from "./charts"
 import events from "./events"
 import dashboard from "./dashboard"
 import description from "./description"
+import rayJobList from "./jobList"
+import rayNodeSummary from "./nodeSummary"
+import jobDetailInfo from "./jobDetailInfo"
 
 function help() {
   return `Usage:
@@ -39,6 +42,9 @@ export default function registerCodeflareCommands(registrar: Registrar) {
   events(registrar)
   dashboard(registrar)
   description(registrar)
+  rayJobList(registrar)
+  rayNodeSummary(registrar)
+  jobDetailInfo(registrar)
 
   registrar.listen("/help", help)
 
@@ -62,6 +68,12 @@ export default function registerCodeflareCommands(registrar: Registrar) {
     height: 600,
   })
   registrar.listen("/codeflare/helloExample", (args) => import("./helloExample").then((_) => _.default(args)), {
+    needsUI: true,
+    outputOnly: true,
+    width: 800,
+    height: 600,
+  })
+  registrar.listen("/codeflare/jobDetail", (args) => import("./jobDetail").then((_) => _.default(args)), {
     needsUI: true,
     outputOnly: true,
     width: 800,
