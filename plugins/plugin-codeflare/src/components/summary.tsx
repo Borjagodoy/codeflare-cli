@@ -31,7 +31,7 @@ import "../../web/scss/components/Dashboard/Description.scss"
 type Props = {
   summary: any
 }
-const Description = (props: Props) => {
+const Summary = (props: Props) => {
   const { summary } = props
 
   return (
@@ -60,4 +60,4 @@ const Description = (props: Props) => {
   )
 }
 
-export default Description
+export default Summary

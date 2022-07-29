@@ -26,6 +26,7 @@ import description from "./description"
 import rayJobList from "./jobList"
 import rayNodeSummary from "./nodeSummary"
 import jobDetailInfo from "./jobDetailInfo"
+import jobLog from "./jobLog"
 
 function help() {
   return `Usage:
@@ -45,6 +46,7 @@ export default function registerCodeflareCommands(registrar: Registrar) {
   rayJobList(registrar)
   rayNodeSummary(registrar)
   jobDetailInfo(registrar)
+  jobLog(registrar)
 
   registrar.listen("/help", help)
 

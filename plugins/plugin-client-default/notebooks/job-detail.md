@@ -21,3 +21,13 @@ layout:
     codeflare jobDetailInfo --address "$LOGDIR" --jobId "$JOBID"
     ```
 ---
+=== "List of Jobs"
+
+    ```shell
+    ---
+    execute: now
+    maximize: true
+    outputOnly: true
+    ---
+    codeflare jobLog --address "$LOGDIR" --jobId "$JOBID"
+    ```

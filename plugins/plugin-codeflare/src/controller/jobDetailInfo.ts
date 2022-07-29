@@ -18,12 +18,16 @@ import { Arguments, Registrar } from "@kui-shell/core"
 
 async function jobDetailInfo(args: Arguments) {
   const address = args.parsedOptions["address"]
-  const jobId = args.parsedOptions["jobId"]
-  const response = await fetch(`${address}/api/jobs/${jobId}`)
+  const jobId: string = args.parsedOptions["jobId"]
+  const response = await fetch(`${address}/api/jobs/${encodeURI(jobId)}`)
 
   const data = await response.json()
   console.log(data)
-  return data
+  const React = await import("react")
+  const JobInfo = await import("../components/jobInfo")
+  return {
+    react: React.createElement(JobInfo.default, { job: data, jobId }),
+  }
 }
 export default function registerDescriptionCommands(registrar: Registrar) {
   registrar.listen("/codeflare/jobDetailInfo", jobDetailInfo, { needsUI: true })
