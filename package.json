@@ -123,6 +123,7 @@
     "@kui-shell/plugin-madwizard": "file:./plugins/plugin-madwizard",
     "@kui-shell/plugin-patternfly4-themes": "11.5.0-dev-20220717-150812",
     "@kui-shell/plugin-proxy-support": "11.5.0-dev-20220717-150812",
-    "@kui-shell/plugin-s3": "11.5.0-dev-20220717-150812"
+    "@kui-shell/plugin-s3": "11.5.0-dev-20220717-150812",
+    "@patternfly/react-log-viewer": "^4.69.1"
   }
 }
