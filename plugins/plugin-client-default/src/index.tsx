@@ -55,7 +55,6 @@ export default function renderMain(props: KuiProps) {
       lightweightTables
       noNewTabButton
       noNewSplitButton
-      noTopTabs
       guidebooks={false}
       {...props}
       initialTabTitle="Hello"

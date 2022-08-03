@@ -26,7 +26,7 @@ import {
   CardBody,
 } from "@patternfly/react-core"
 
-import "../../web/scss/components/Dashboard/Description.scss"
+import "../../web/scss/components/Jobs/Summary.scss"
 
 type Props = {
   summary: any

@@ -16,7 +16,7 @@
 
 import { Arguments, Registrar } from "@kui-shell/core"
 const onClick = (address: string, item: string, args: Arguments) => {
-  args.REPL.pexec(`tab new --cmdline "codeflare jobDetail --address ${address} --jobId ${item}"`)
+  args.REPL.qexec(`tab new --cmdline "codeflare jobDetail --address ${address} --jobId ${item}"`)
 }
 async function rayJobList(args: Arguments) {
   const address = args.parsedOptions["address"]
