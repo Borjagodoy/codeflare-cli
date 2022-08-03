@@ -22,9 +22,9 @@ async function rayJobList(args: Arguments) {
   const address = args.parsedOptions["address"]
   process.env.LOGDIR = address
   const response = await fetch(`${address}/api/jobs/`)
-
   const data = await response.json()
   const jobsKeys = Object.keys(data)
+
   return {
     header: { name: "JobId", attributes: [{ value: "Status" }] },
     body: jobsKeys.map((item) => ({

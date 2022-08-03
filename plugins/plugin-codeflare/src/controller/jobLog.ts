@@ -15,6 +15,7 @@
  */
 
 import { Arguments, Registrar } from "@kui-shell/core"
+import "../../web/scss/components/Jobs/Logs.scss"
 
 async function jobLog(args: Arguments) {
   const address = args.parsedOptions["address"]
@@ -23,6 +24,7 @@ async function jobLog(args: Arguments) {
   //const data = await response.json()
   const React = await import("react")
   const jobLogs = await import("../components/jobLogs")
+
   return {
     react: React.createElement(jobLogs.default, { address, jobId }),
   }

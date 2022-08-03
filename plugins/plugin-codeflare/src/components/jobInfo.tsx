@@ -24,7 +24,7 @@ import {
   Badge,
 } from "@patternfly/react-core"
 
-import "../../web/scss/components/Dashboard/Description.scss"
+import "../../web/scss/components/jobs/Summary.scss"
 
 type Props = {
   job: any

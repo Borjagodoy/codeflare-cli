@@ -27,7 +27,7 @@ const JobLogs = (props: Props) => {
   const wsAddress = address.replace("http", "ws")
   console.log(wsAddress)
   // Crea una nueva conexión.
-  const socket = new WebSocket(`${wsAddress}/api/jobs/${jobId}/logs/tail`)
+  const socket = new WebSocket(`${wsAddress}/api/jobs/${jobId.replaceAll("'", "")}/logs/tail`)
   // Escucha por mensajes
   socket.addEventListener("close", async () => {
     console.log("ws closed")
@@ -36,15 +36,21 @@ const JobLogs = (props: Props) => {
     console.group("ws open")
   })
   socket.addEventListener("message", async (event) => {
-    const response = await fetch(`${address}/api/jobs/${jobId}`)
+    const response = await fetch(`${address}/api/jobs/${jobId.replaceAll("'", "")}`)
     const jobData = await response.json()
     if (jobData.status === "RUNNING" || jobData.status === "PENDING") {
       setData((current) => [...current, event.data])
     } else {
       console.log("address", address)
-      const response = await fetch(`${address}/api/jobs/${jobId}/logs`)
+      const response = await fetch(`${address}/api/jobs/${jobId.replaceAll("'", "")}/logs`)
       const jobLogs = await response.json()
-      setData(jobLogs.logs)
+      console.log(jobLogs)
+      if (jobData.status === "FAILED") {
+        console.log(jobLogs, jobLogs.message)
+        setData(jobData.message)
+      } else {
+        setData(jobLogs.logs)
+      }
       socket.close()
     }
     document.querySelector("#bootom")?.scrollIntoView()

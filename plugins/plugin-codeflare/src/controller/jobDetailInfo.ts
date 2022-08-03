@@ -19,7 +19,9 @@ import { Arguments, Registrar } from "@kui-shell/core"
 async function jobDetailInfo(args: Arguments) {
   const address = args.parsedOptions["address"]
   const jobId: string = args.parsedOptions["jobId"]
-  const response = await fetch(`${address}/api/jobs/${jobId}`)
+  console.log(jobId)
+
+  const response = await fetch(`${address}/api/jobs/${jobId.replaceAll("'", "")}`)
 
   const data = await response.json()
   console.log(data)

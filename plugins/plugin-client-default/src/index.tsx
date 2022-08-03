@@ -51,6 +51,7 @@ export default function renderMain(props: KuiProps) {
     <Kui
       noHelp
       version={version}
+      toplevel
       productName={props.title || productTitle}
       lightweightTables
       noNewTabButton

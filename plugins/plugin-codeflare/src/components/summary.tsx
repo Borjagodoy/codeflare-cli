@@ -52,7 +52,6 @@ const Summary = (props: Props) => {
               <DescriptionListTerm>Memory usage</DescriptionListTerm>
               <DescriptionListDescription>{item.disk["/"].percent} %</DescriptionListDescription>
             </DescriptionListGroup>
-            Body
           </CardBody>
         </Card>
       ))}

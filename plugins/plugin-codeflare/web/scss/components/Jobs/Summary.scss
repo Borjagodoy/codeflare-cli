@@ -8,3 +8,9 @@
 .pf-c-description-list__description {
   margin: 0.5rem 0;
 }
+
+dl .pf-c-card[data-ouia-component-type] {
+  border: 0.5px solid;
+  margin: 0 0.5rem;
+  padding: 10px;
+}
