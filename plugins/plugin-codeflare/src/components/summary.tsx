@@ -24,6 +24,7 @@ import {
   Card,
   CardTitle,
   CardBody,
+  Badge,
 } from "@patternfly/react-core"
 
 import "../../web/scss/components/Jobs/Summary.scss"
@@ -42,7 +43,9 @@ const Summary = (props: Props) => {
           <CardBody>
             <DescriptionListGroup key={index}>
               <DescriptionListTerm>State</DescriptionListTerm>
-              <DescriptionListDescription>{item.raylet.state}</DescriptionListDescription>
+              <DescriptionListDescription>
+                <Badge>{item.raylet.state}</Badge>
+              </DescriptionListDescription>
               <DescriptionListTerm>HostName</DescriptionListTerm>
               <DescriptionListDescription>{item.hostname}</DescriptionListDescription>
               <DescriptionListTerm>IP</DescriptionListTerm>

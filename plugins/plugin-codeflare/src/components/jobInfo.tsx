@@ -42,7 +42,7 @@ const JobInfo = (props: Props) => {
       <DescriptionListGroup>
         <DescriptionListTerm>Status</DescriptionListTerm>
         <DescriptionListDescription>
-          <Badge isRead>{job.status}</Badge>
+          <Badge>{job.status}</Badge>
         </DescriptionListDescription>
       </DescriptionListGroup>
       <DescriptionListGroup>
